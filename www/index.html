@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Daan Wijns</title>
+</head>
+
+<body class="mat-typography bg-gray-100">
+    <header class="lg:px-16 px-6 bg-teal-500 flex flex-wrap items-center lg:py-0 py-2 mb-10">
+        <div class="md:hidden flex-1 flex justify-between items-center"></div>
+    </header>
+
+    <div class="grid grid-cols-1 gap-2">
+        <div class="mx-auto w-3/4 rounded overflow-hidden shadow-lg bg-white">
+            <div class="px-4 py-2">
+                <div>
+                    <img id="webcam" autoplay playsinline width="640" height="480"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto mt-10 grid grid-cols-1" style="max-width: 60%">
+        <button id="picture" class="bg-teal-500 text-white font-bold py-2 px-4 rounded">
+            Take Picture
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 gap-2 mt-10" style="min-height: 200px">
+        <div class="mx-auto w-3/4 rounded overflow-hidden shadow-lg bg-white">
+            <div class="px-4 py-2">
+                <img id="output" />
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

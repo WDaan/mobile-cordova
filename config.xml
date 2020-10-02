@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>WDaan</name>
+    <description>
+        A sample Apache Cordova application that takes pictures
+    </description>
+    <author email="daan.wijns.student@gmail.com" href="http://cordova.io">
+        Daan Wijns
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+         <splash src="./www/img/splash.jpg" density="land-hdpi"/>
+    <splash src="./www/img/splash.jpg" density="land-ldpi"/>
+    <splash src="./www/img/splash.jpg" density="land-mdpi"/>
+    <splash src="./www/img/splash.jpg" density="land-xhdpi"/>
+    <splash src="./www/img/splash.jpg" density="land-xxhdpi"/>
+
+    <splash src="./www/img/splash.jpg" density="port-hdpi"/>
+    <splash src="./www/img/splash.jpg" density="port-ldpi"/>
+    <splash src="./www/img/splash.jpg" density="port-mdpi"/>
+    <splash src="./www/img/splash.jpg" density="port-xhdpi"/>
+    <splash src="./www/img/splash.jpg" density="port-xxhdpi"/>
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <preference name="SplashScreenDelay" value="2000" />
+</widget>
