@@ -12,6 +12,10 @@ function connectMQTT() {
         clientid: 'client-' + parseInt(Math.random() * 100, 10)
     })
 
+    client.on('error', function (error) {
+        alert(error)
+    })
+
     client.on('connect', function () {
         client.subscribe(channel)
         //remove connect form && show chat

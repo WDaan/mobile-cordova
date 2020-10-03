@@ -9,13 +9,8 @@
             content="initial-scale=1, width=device-width, viewport-fit=cover"
         />
         <link rel="stylesheet" href="css/index.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css"
-            integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w=="
-            crossorigin="anonymous"
-        />
-        <script src="https://unpkg.com/mqtt@4.0.1/dist/mqtt.min.js"></script>
+        <link rel="stylesheet" href="css/tailwind.css" />
+        <script src="https://unpkg.com/mqtt@4.2.1/dist/mqtt.min.js"></script>
         <title>Daan Wijns</title>
     </head>
 
@@ -72,7 +67,7 @@
 
         <div id="chatroom" class="hidden">
             <div id="messageList" class="mt-20 mb-16">
-                <div id="scrollRef">/</div>
+                <div id="scrollRef"></div>
             </div>
             <div class="fixed w-full bottom-0 flex justify-between bg-white">
                 <textarea
