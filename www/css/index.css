@@ -17,6 +17,20 @@
 }
 
 /** chat **/
+html::-webkit-scrollbar {
+    width: 0.2rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #2d3748;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #38b2ac;
+    border-radius: 1em;
+    height: 20px !important;
+}
+
 input {
     padding: 16px;
     font-size: 1.3em;

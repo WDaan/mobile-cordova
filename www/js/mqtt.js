@@ -8,8 +8,17 @@ function connectMQTT() {
     const server = document.getElementById('server').value
     channel = document.getElementById('channel').value
 
-    client = mqtt.connect(server)
-    client.subscribe(channel)
+    client = mqtt.connect(server, {
+        clientid: 'client-' + parseInt(Math.random() * 100, 10)
+    })
+
+    client.on('connect', function () {
+        client.subscribe(channel)
+        //remove connect form && show chat
+        document.getElementById('connectForm').classList.add('hidden')
+        document.getElementById('chatroom').classList.remove('hidden')
+    })
+
     client.on('message', function (topic, payload) {
         let sender, message
         try {
@@ -23,10 +32,6 @@ function connectMQTT() {
 
         addMessage(new Message(message, sender))
     })
-
-    //remove connect window && show chat
-    document.getElementById('connectForm').classList.add('hidden')
-    document.getElementById('chatroom').classList.remove('hidden')
 }
 
 class Message {
@@ -68,4 +73,5 @@ function sendMessage() {
     client.publish(channel, JSON.stringify(message))
     const chat = document.getElementById('messageList')
     chat.insertAdjacentHTML('beforeend', message.render())
+    document.getElementById('scrollRef').scrollIntoView({ behavior: 'smooth' })
 }
