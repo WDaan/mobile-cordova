@@ -1,8 +1,6 @@
 document.addEventListener('deviceready', onDeviceReady, false)
 
 function onDeviceReady() {
-    //navbar
-    NavigationBar.show()
     //init camera
     document.getElementById('picture').addEventListener('click', takePicture)
 }
@@ -14,6 +12,8 @@ function takePicture() {
     }
     navigator.camera.getPicture(
         uri => {
+            let imgContainer = document.getElementById('imgContainer')
+            imgContainer.classList.remove('hidden')
             document.getElementById('output').src =
                 'data:image/jpeg;base64,' + uri
         },

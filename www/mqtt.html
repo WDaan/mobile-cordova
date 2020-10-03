@@ -1,65 +1,109 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta
+            name="viewport"
+            content="initial-scale=1, width=device-width, viewport-fit=cover"
+        />
+        <link rel="stylesheet" href="css/index.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css"
+            integrity="sha512-KO1h5ynYuqsFuEicc7DmOQc+S9m2xiCKYlC3zcZCSEw0RGDsxcMnppRaMZnb0DdzTDPaW22ID/gAGCZ9i+RT/w=="
+            crossorigin="anonymous"
+        />
+        <script src="https://unpkg.com/mqtt@4.0.1/dist/mqtt.min.js"></script>
+        <title>Daan Wijns</title>
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
-    <meta name="color-scheme" content="light dark" />
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" href="css/index.css" />
-    <title>Daan Wijns</title>
-</head>
-
-<body class="mat-typography bg-gray-800">
-
-
-    <div class="mx-auto mt-10 grid grid-cols-1" style="max-width: 60%">
-        <button id="picture" class="bg-teal-500 text-white font-bold py-2 px-4 rounded">
-            Connect
-        </button>
-    </div>
-
-    <footer>
-        <div class="bg-white absolute bottom-0 w-full border-t border-gray-800 flex">
-            <a href="index.html"
-                class="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500">
-                <div class="text-center">
-                    <span class="flex items-center justify-center text-lg text-green-400">
-                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
-                            viewBox="0 0 24 24" aria-labelledby="cameraIconTitle" stroke="#38B2AC" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round" fill="none" color="#38B2AC">
-                            <title id="cameraIconTitle">Camera</title>
-                            <path d="M8 7l.74-1.11A2 2 0 0 1 10.404 5h3.192a2 2 0 0 1 1.664.89L16 7h5v11H3V7h5z" />
-                            <circle cx="12" cy="12" r="3" />
-                        </svg>
-                    </span>
-                    <span class="block text-xs leading-none">Camera</span>
+    <body class="mat-typography bg-gray-800">
+        <a href="index.html">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="w-12 h-12 my-1 text-green-100 ml-2"
+            >
+                <path
+                    class="text-green-100 fill-current"
+                    d="M9.41 11H17a1 1 0 0 1 0 2H9.41l2.3 2.3a1 1 0 1 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L9.4 11z"
+                />
+            </svg>
+        </a>
+        <div id="connectForm" class="mt-8">
+            <div class="mx-auto w-10/12">
+                <input type="hidden" name="remember" value="true" />
+                <div class="rounded-md shadow-sm">
+                    <div>
+                        <input
+                            id="server"
+                            aria-label="Server"
+                            name="server"
+                            type="text"
+                            required
+                            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                            placeholder="MQTT server"
+                            value="ws://test.mosquitto.org:8080/ws"
+                        />
+                    </div>
+                    <div class="-mt-px">
+                        <input
+                            id="channel"
+                            aria-label="channel"
+                            name="channel"
+                            type="text"
+                            required
+                            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                            placeholder="Channel"
+                            value="wdaan"
+                        />
+                    </div>
                 </div>
-            </a>
-            <a href="mqtt.html"
-                class="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500">
-                <div class="text-center">
-                    <span class="flex items-center justify-center text-lg text-green-400">
-                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
-                            viewBox="0 0 24 24" aria-labelledby="sendIconTitle" stroke="#38B2AC" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round" fill="none" color="#38B2AC">
-                            <title id="sendIconTitle">Send</title>
-                            <polygon points="21.368 12.001 3 21.609 3 14 11 12 3 9.794 3 2.394" />
-                        </svg>
-                    </span>
-                    <span class="block text-xs leading-none">MQTT</span>
-                </div>
-            </a>
+            </div>
+            <button
+                id="connectMQTT"
+                class="mt-3 text-lg font-semibold ripple-bg-teal-500 w-10/12 mx-auto text-white rounded-lg px-6 py-3 block shadow-xl"
+            >
+                Connect
+            </button>
         </div>
-    </footer>
 
-    <script src="cordova.js"></script>
-    <script src="js/index.js"></script>
-</body>
-
+        <div id="chatroom" class="hidden">
+            <div id="messageList" class="mt-20 mb-16"></div>
+            <div class="fixed w-full bottom-0 flex justify-between bg-white">
+                <textarea
+                    id="messageInput"
+                    class="flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-gray-200 resize-none"
+                    rows="1"
+                    placeholder="Message..."
+                    style="outline: none"
+                ></textarea>
+                <button id="sendMessage" class="m-2" style="outline: none">
+                    <svg
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32px"
+                        height="32px"
+                        viewBox="0 0 24 24"
+                        aria-labelledby="sendIconTitle"
+                        stroke="#38B2AC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        fill="none"
+                        color="#38B2AC"
+                    >
+                        <title id="sendIconTitle">Send</title>
+                        <polygon
+                            points="21.368 12.001 3 21.609 3 14 11 12 3 9.794 3 2.394"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="js/mqtt.js"></script>
+    </body>
 </html>
