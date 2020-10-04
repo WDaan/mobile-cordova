@@ -1,18 +1,16 @@
-const express = require('express')
-const app = express()
+const port = process.env.PORT || 8282
+const WebSocket = require('ws')
+const wss = new WebSocket.Server({ port })
 
-const server = app.listen(8282)
-
-const io = require('socket.io').listen(server)
-
-io.on('connection', socket => {
-    socket.on('join', room => {
-        socket.join(room)
-    })
-    socket.on('chat', message => {
-        console.log(message)
-        io.to(message.room).emit('chat', message)
+wss.on('connection', ws => {
+    ws.on('message', data => {
+        // sends the data to all connected clients
+        wss.clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(data)
+            }
+        })
     })
 })
 
-console.log('Server started on port 8282....')
+console.log(`Server is up on port ${port}!`)
