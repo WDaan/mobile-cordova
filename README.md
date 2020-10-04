@@ -3,4 +3,4 @@
 ### features
 
 -   take pictures
--   listen/send to mqtt
+-   chat via websockets!

@@ -31,27 +31,43 @@ html::-webkit-scrollbar-thumb {
     height: 20px !important;
 }
 
-input {
-    padding: 16px;
-    font-size: 1.3em;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+.msg {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+.msg:last-of-type {
+    margin: 0;
 }
 
-.chat-list {
-    padding: 0;
+.msg-bubble {
+    max-width: 450px;
+    padding: 15px;
+    border-radius: 15px;
 }
-.chat-list li {
-    margin: 16px 0;
-    list-style-type: none;
+.msg-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
-.chat-list .name {
-    color: #006aee;
-    font-size: 1.4em;
+.msg-info-name {
+    margin-right: 10px;
     font-weight: bold;
 }
-.chat-list .mssg {
-    font-size: 1.2em;
-    margin-top: 4px;
+.msg-info-time {
+    font-size: 0.85em;
+}
+
+.left-msg .msg-bubble {
+    border-bottom-left-radius: 0;
+    margin-left: 10px;
+}
+
+.right-msg {
+    flex-direction: row-reverse;
+    margin-right: 10px;
+}
+.right-msg .msg-bubble {
+    border-bottom-right-radius: 0;
 }

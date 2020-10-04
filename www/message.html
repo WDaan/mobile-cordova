@@ -8,7 +8,8 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/tailwind.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src *; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data:" />
     <title>Daan Wijns</title>
 </head>
 
@@ -27,11 +28,6 @@
                     <input id="server" aria-label="Server" name="server" type="text" required
                         class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                         placeholder="MQTT server" value="ws://10.0.0.22:8282" />
-                </div>
-                <div>
-                    <input id="room" aria-label="room" name="room" type="text" required
-                        class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-                        placeholder="Room" value="chat" />
                 </div>
                 <div class="-mt-px">
                     <input id="user" aria-label="user" name="user" type="text" required

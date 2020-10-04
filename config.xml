@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>WDaan</name>
     <description>
         A sample Apache Cordova application that takes pictures
@@ -9,6 +9,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-navigation href="*"/>
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="ws://*/*" />
@@ -29,6 +30,9 @@
     <splash src="./www/img/splash.jpg" density="port-mdpi"/>
     <splash src="./www/img/splash.jpg" density="port-xhdpi"/>
     <splash src="./www/img/splash.jpg" density="port-xxhdpi"/>
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+      <application android:usesCleartextTraffic="true" />
+  </edit-config>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
