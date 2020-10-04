@@ -9,6 +9,6 @@ WORKDIR /src
 
 RUN npm install --production
 
-EXPOSE 8080
+EXPOSE 8282
 
 CMD npm start
