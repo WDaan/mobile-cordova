@@ -7,8 +7,7 @@ function onDeviceReady() {
 
 function takePicture() {
     const opts = {
-        destinationType: Camera.DestinationType.DATA_URL,
-        cameraDirection: Camera.Direction.FRONT
+        destinationType: Camera.DestinationType.DATA_URL
     }
     navigator.camera.getPicture(
         uri => {

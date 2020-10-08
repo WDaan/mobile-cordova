@@ -1,118 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <meta
-            name="viewport"
-            content="initial-scale=1, width=device-width, viewport-fit=cover"
-        />
-        <meta name="color-scheme" content="light dark" />
-        <link rel="stylesheet" href="css/index.css" />
-        <link rel="stylesheet" href="css/tailwind.css" />
 
-        <title>Daan Wijns</title>
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/tailwind.css" />
 
-    <body class="mat-typography bg-gray-800">
-        <div
-            id="imgContainer"
-            class="grid grid-cols-1 gap-2 mt-10 hidden"
-            style="min-height: 200px"
-        >
-            <div
-                class="mx-auto w-3/4 rounded overflow-hidden shadow-lg bg-white"
-            >
-                <div class="px-4 py-2">
-                    <img id="output" />
+    <title>Daan Wijns</title>
+</head>
+
+<body class="mat-typography bg-gray-800">
+    <div id="imgContainer" class="grid grid-cols-1 gap-2 mt-10 hidden" style="min-height: 200px">
+        <div class="mx-auto w-3/4 rounded overflow-hidden shadow-lg bg-white">
+            <div class="px-4 py-2">
+                <img id="output" />
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto mt-10 grid grid-cols-1 absolute" style="width: 60%; bottom: 15%; left: 20%; right: 20%">
+        <button id="picture"
+            class="mt-3 text-lg font-semibold ripple-bg-teal-500 w-10/12 mx-auto text-white rounded-lg px-6 py-3 block shadow-xl">
+            Take Picture
+        </button>
+    </div>
+
+    <footer>
+        <div class="bg-white absolute bottom-0 w-full border-t border-gray-800 flex">
+            <a href="#" class="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500">
+                <div class="text-center">
+                    <span class="flex items-center justify-center text-lg text-green-400">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
+                            viewBox="0 0 24 24" aria-labelledby="cameraIconTitle" stroke="#38B2AC" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" fill="none" color="#38B2AC">
+                            <title id="cameraIconTitle">Camera</title>
+                            <path d="M8 7l.74-1.11A2 2 0 0 1 10.404 5h3.192a2 2 0 0 1 1.664.89L16 7h5v11H3V7h5z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </span>
+                    <span class="block text-xs leading-none">Camera</span>
                 </div>
-            </div>
+            </a>
+            <a href="message.html"
+                class="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500">
+                <div class="text-center">
+                    <span class="flex items-center justify-center text-lg text-green-400">
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
+                            viewBox="0 0 24 24" aria-labelledby="sendIconTitle" stroke="#38B2AC" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" fill="none" color="#38B2AC">
+                            <title id="sendIconTitle">Send</title>
+                            <polygon points="21.368 12.001 3 21.609 3 14 11 12 3 9.794 3 2.394" />
+                        </svg>
+                    </span>
+                    <span class="block text-xs leading-none">Messages</span>
+                </div>
+            </a>
         </div>
+    </footer>
 
-        <div
-            class="mx-auto mt-10 grid grid-cols-1 absolute"
-            style="width: 60%; bottom: 15%; left: 20%; right: 20%"
-        >
-            <button
-                id="picture"
-                class="mt-3 text-lg font-semibold ripple-bg-teal-500 w-10/12 mx-auto text-white rounded-lg px-6 py-3 block shadow-xl"
-            >
-                Take Picture
-            </button>
-        </div>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+</body>
 
-        <footer>
-            <div
-                class="bg-white absolute bottom-0 w-full border-t border-gray-800 flex"
-            >
-                <a
-                    href="#"
-                    class="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500"
-                >
-                    <div class="text-center">
-                        <span
-                            class="flex items-center justify-center text-lg text-green-400"
-                        >
-                            <svg
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="32px"
-                                height="32px"
-                                viewBox="0 0 24 24"
-                                aria-labelledby="cameraIconTitle"
-                                stroke="#38B2AC"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                fill="none"
-                                color="#38B2AC"
-                            >
-                                <title id="cameraIconTitle">Camera</title>
-                                <path
-                                    d="M8 7l.74-1.11A2 2 0 0 1 10.404 5h3.192a2 2 0 0 1 1.664.89L16 7h5v11H3V7h5z"
-                                />
-                                <circle cx="12" cy="12" r="3" />
-                            </svg>
-                        </span>
-                        <span class="block text-xs leading-none">Camera</span>
-                    </div>
-                </a>
-                <a
-                    href="message.html"
-                    class="flex flex-grow items-center justify-center p-2 text-gray-500 hover:text-indigo-500"
-                >
-                    <div class="text-center">
-                        <span
-                            class="flex items-center justify-center text-lg text-green-400"
-                        >
-                            <svg
-                                role="img"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="32px"
-                                height="32px"
-                                viewBox="0 0 24 24"
-                                aria-labelledby="sendIconTitle"
-                                stroke="#38B2AC"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                fill="none"
-                                color="#38B2AC"
-                            >
-                                <title id="sendIconTitle">Send</title>
-                                <polygon
-                                    points="21.368 12.001 3 21.609 3 14 11 12 3 9.794 3 2.394"
-                                />
-                            </svg>
-                        </span>
-                        <span class="block text-xs leading-none">MQTT</span>
-                    </div>
-                </a>
-            </div>
-        </footer>
-
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
-    </body>
 </html>
