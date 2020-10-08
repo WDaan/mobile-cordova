@@ -1,4 +1,4 @@
-document.getElementById('connectMQTT').addEventListener('click', connectMQTT)
+document.getElementById('connectButton').addEventListener('click', connect)
 document.getElementById('sendMessage').addEventListener('click', sendMessage)
 
 var client
@@ -41,7 +41,7 @@ class Message {
     }
 }
 
-function connectMQTT() {
+function connect() {
     const server = document.getElementById('server').value
     user = document.getElementById('user').value
 
